@@ -43,37 +43,20 @@ const UserSchema = new Schema({
 // password hashing
 
 UserSchema.pre("save", async function (next) {
-    if(!this.isModified("password"))return next();
+    if(!this.isModified("password"))return ;
     this.password = await bcrypt.hash(this.password, 10);
-    next();
+    // next();
 })
 
-// sales/metrics schema
 
-const SalesSchema = new Schema({
-    amount: {
-        type: Number,
-        required: true
-    },
-    category: {
-        type: String,
-        required: true
-    },
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-        required: true
-    }
-},{timestamps: true})
 
 // done with mongoose schema,
 // now creating mongoose model
 // (After creating the schema, use the mongoose.model() function to compile the schema into a model)
 
 const User = mongoose.model('User', UserSchema);
-const Sales = mongoose.model('Sales', SalesSchema);
 
 
 // next we will export the models
 
-export { User, Sales };
+export { User };

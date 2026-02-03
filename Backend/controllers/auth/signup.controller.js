@@ -1,6 +1,4 @@
-import bcrypt from "bcryptjs";
-import jwt from 'jsonwebtoken';
-import { User } from "../models/models";
+import { User } from "../../models/User.model.js";
 
 
 // validate email
@@ -18,6 +16,7 @@ function validatePassword(password) {
 // user sign-up
 export const signUp = async(req,res) => {
     try{
+        console.log("hii");
         const { username, email, password, confirmPassword } = req.body;
 
         if(!username || !email || !password || !confirmPassword){
@@ -45,13 +44,11 @@ export const signUp = async(req,res) => {
         // const salt = await bcrypt.genSalt(10);
         // const hashedPassword = await bcrypt(password,salt);
 
-        const newUser = new User({
+        const newUser = await User.create({
             username,
             email,
-            password: hashedPassword
+            password
         });
-
-        await newUser.save();
 
         res.status(201).json({
             message: "User registered successfully",
@@ -65,5 +62,10 @@ export const signUp = async(req,res) => {
         return res.status(500).json({
             message: error.message
         });
-}
+    }
+    // catch (error) {
+    // console.log("ERROR 👉", error);
+    // return res.status(500).json({
+    //     message: error.message
+    // });
 }
