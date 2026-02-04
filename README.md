@@ -55,4 +55,4 @@ This is a professional Admin Dashboard assignment built using the MEAN stack. It
 4. Open your browser at: `http://localhost:4200`
 
 ---
-Developed by [Rishav] as part of the WINNR Assignment.
+Developed by [Rishav] as part of the SMARTWINNR Assignment.
