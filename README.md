@@ -19,7 +19,7 @@ This is a professional Admin Dashboard assignment built using the MEAN stack. It
 ## 📸 Screenshots
 
 ### 1. Sign Up Page
-![Sign Up](screenshots/1.jpg)
+![Sign Up](screenshots/1.png)
 
 ### 2. Login Page
 ![Login](screenshots/2.png)
