@@ -1,0 +1,90 @@
+<nav class="navbar">
+  <h1>Admin Dashboard</h1>
+  <button class="btn-logout" (click)='onLogout()'>Logout</button>
+</nav>
+
+<div class="content">
+  <h2>Admin Dashboard</h2>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h3>Total Users</h3>
+      <p class="stat-value">{{ totalUsers || 0 }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Total Sales</h3>
+      <p class="stat-value">₹{{ totalSales || 0 }}</p>
+    </div>
+  </div>
+  
+  <div class="chart-section">
+    <div class="chart-container">
+      <canvas #salesChart id="salesChart"></canvas>
+    </div>
+  </div>
+
+  <div class="admin-controls-section">
+    <div class="tab-header">
+      <button [class.active]="activeTab === 'users'" (click)="activeTab = 'users'">Manage Users</button>
+      <button [class.active]="activeTab === 'sales'" (click)="activeTab = 'sales'">View Sales History</button>
+    </div>
+
+    <div class="table-card">
+      <div *ngIf="activeTab === 'users'">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let u of users">
+  <td>{{ u.username }}</td>
+  <td>{{ u.email }}</td>
+  <td>
+    <button class="role-badge" [ngClass]="u.role" (click)="toggleRole(u)">
+      {{ u.role }}
+    </button>
+  </td>
+  <td>
+    <span [class.text-success]="u.isActive" [class.text-danger]="!u.isActive">
+      {{ u.isActive ? 'Active' : 'Blocked' }}
+    </span>
+  </td>
+  <td>
+    <button class="btn-action" (click)="toggleUserStatus(u)">
+      {{ u.isActive ? 'Block' : 'Unblock' }}
+    </button>
+  </td>
+</tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div *ngIf="activeTab === 'sales'">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>User ID</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let s of sales">
+              <td>{{ s.category }}</td>
+              <td><strong>₹{{ s.amount }}</strong></td>
+              <td>{{ s.user }}</td>
+              <td>{{ s.createdAt | date:'mediumDate' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="auth-container">
+  <div class="auth-card signup-card">
+    <h2>Sign Up</h2>
+    
+    <div class="form-group">
+      <input type="text" placeholder="Username" [(ngModel)]="username" aria-label="Username">
+    </div>
+
+    <div class="form-group">
+      <input type="email" placeholder="Email" [(ngModel)]="email" aria-label="Email">
+    </div>
+
+    <div class="form-group">
+      <input type="password" placeholder="Password" [(ngModel)]="password" aria-label="Password">
+    </div>
+
+    <div class="form-group">
+      <input type="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword" aria-label="Confirm Password">
+    </div>
+
+    <button class="btn-auth" (click)="signup()">Sign Up</button>
+
+    <p class="auth-footer">
+  Already have an account? 
+  <a routerLink="/login">Login here</a>
+</p>
+  </div>
+</div>

@@ -25,4 +25,4 @@ const SalesSchema = new Schema({
 const Sales = mongoose.model('Sales', SalesSchema);
 
 
-export {Sales};
+export { Sales };

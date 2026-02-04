@@ -40,9 +40,6 @@ export const signUp = async(req,res) => {
             return res.status(409).json({message: "This email is already registered,please signIn"});
         }
 
-        // //Hash Password
-        // const salt = await bcrypt.genSalt(10);
-        // const hashedPassword = await bcrypt(password,salt);
 
         const newUser = await User.create({
             username,
@@ -63,9 +60,4 @@ export const signUp = async(req,res) => {
             message: error.message
         });
     }
-    // catch (error) {
-    // console.log("ERROR 👉", error);
-    // return res.status(500).json({
-    //     message: error.message
-    // });
 }

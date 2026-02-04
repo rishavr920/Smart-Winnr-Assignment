@@ -21,6 +21,9 @@ export const signIn = async (req,res) => {
             })
         }
 
+        if (!user.isActive) {
+                return res.status(403).json({ message: "Your account is blocked. Contact Admin." });
+        }
         // comparing password
         const isPasswordMatch = await bcrypt.compare(password,user.password);
 

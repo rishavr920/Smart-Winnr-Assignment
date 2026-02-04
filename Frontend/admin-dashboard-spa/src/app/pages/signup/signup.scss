@@ -1,0 +1,31 @@
+@import "../../app.scss";
+
+.btn-signup {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+.auth-footer {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: bold;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

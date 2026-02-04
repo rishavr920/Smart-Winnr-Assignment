@@ -1,0 +1,114 @@
+/* Simple Grey/White Dashboard */
+.content {
+  padding: 15px;
+  background-color: #eeeeee; // Simple light grey
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+
+  .stats-grid {
+    display: flex; // Grid ki jagah simple flex use karo
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ccc; // Basic border
+    width: 200px;
+    
+    h3 { margin: 0; font-size: 14px; color: #555; }
+    .stat-value { font-size: 24px; font-weight: bold; color: black; }
+  }
+
+  .chart-section {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    
+    .chart-container {
+      height: 300px;
+    }
+  }
+}
+
+.navbar {
+  background: #333; // Dark header (old school style)
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 { font-size: 20px; margin: 0; }
+}
+
+.btn-logout {
+  background: #d9534f; // Standard bootstrap red
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  
+  &:hover { background: #c9302c; }
+}
+
+.admin-controls-section {
+  .tab-header {
+    margin-bottom: 10px;
+    
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+      border: 1px solid #999;
+      background: #f0f0f0;
+      
+      &.active {
+        background: #ddd;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .table-card {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    
+    th, td {
+      border: 1px solid #ddd; // Table borders clearly visible
+      padding: 8px;
+      text-align: left;
+    }
+
+    th { background-color: #f2f2f2; }
+  }
+}
+
+/* Simple status colors */
+.role-badge {
+  background: #f9f9f9;
+  border: 1px solid #999;
+  padding: 2px 5px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.text-success { color: green; }
+.text-danger { color: red; }
+
+.btn-action {
+  background: white;
+  border: 1px solid #333;
+  padding: 3px 7px;
+  cursor: pointer;
+  
+  &:hover { background: #eee; }
+}
